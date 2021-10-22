@@ -11,7 +11,7 @@ CREATE TABLE seller (
   "BaseSalary" double precision NOT NULL,
   "DepartmentId" int NOT NULL,
   PRIMARY KEY ("Id"),
-  FOREIGN KEY ("DepartmentId") REFERENCES department ("Id")
+  FOREIGN KEY ("DepartmentId") REFERENCES department ("Id") ON DELETE CASCADE
 );
 
 INSERT INTO department ("Name") VALUES
