@@ -39,7 +39,10 @@ public class Program2 {
 		System.out.println(dep);
 		
 		System.out.println("\n=== TEST 3: department update =====");
-		dep = departmentDao.findById(1);
+		System.out.print("Type a department id to be updated: ");
+		id = sc.nextInt();
+		sc.nextLine();
+		dep = departmentDao.findById(id);
 		dep.setName("Auto");
 		departmentDao.update(dep);
 		System.out.println("Update completed");
