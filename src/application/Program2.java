@@ -14,11 +14,23 @@ public class Program2 {
 		
 		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 		
-		System.out.println("=== TEST 1: department insert =====");
-		Department dep = new Department(null, "Sports");
-		departmentDao.insert(dep);
-		System.out.println("Inserted! New id: " + dep.getId());
+		System.out.println("\n=== TEST 0: department findByName =====");
+		Department dep = departmentDao.findByName("Sports");
+		if (dep != null) {
+			System.out.println("Found: " + dep);
+		} else {
+			System.out.println("Department not found!");
+		}
 		
+		System.out.println("\n=== TEST 1: department insert =====");
+		if (dep == null) {
+			dep = new Department(null, "Sports");
+			departmentDao.insert(dep);
+			System.out.println("Inserted! New id: " + dep.getId());
+		} else {
+			System.out.println("Department already exists!");
+		}
+
 		System.out.println("\n=== TEST 2: department findById =====");
 		System.out.print("Type de id to be retrieved: ");
 		int id = sc.nextInt();
